@@ -32,7 +32,7 @@ const relicChances: {
 }
 
 const getChance = (chances: number[]): number => {
-    return chances.reduce((acc, current) => acc + (1-acc)*current)
+    return chances.length ? chances.reduce((acc, current) => acc + (1-acc)*current) : 0
 }
 
 const toPercentage = (val: number): number => {return val * 100}
