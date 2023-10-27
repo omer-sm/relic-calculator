@@ -14,12 +14,12 @@ interface IItemRarityInputProps {
 
 export function ItemRarityInput({value, handleChange, }: IItemRarityInputProps) {
     return (
-        <FormControl>
+        <FormControl sx={{width: "100%", justifyItems: "stretch"}}>
             <FormLabel>Desired rarity</FormLabel>
-            <ToggleButtonGroup value={value} onChange={(e, newValue) => {handleChange(newValue)}}>
-                <Button value="common" sx={(theme) => ({color: theme.vars.palette.warning[500]})}>Common</Button>
-                <Button value="uncommon" sx={(theme) => ({color: theme.vars.palette.neutral[400]})}>Uncommon</Button>
-                <Button value="rare" sx={(theme) => ({color: theme.vars.palette.warning[300]})}>Rare</Button>
+            <ToggleButtonGroup value={value} onChange={(e, newValue) => {handleChange(newValue)}} sx={{width: "100%", flexWrap: "nowrap"}}>
+                <Button value="common" sx={(theme) => ({color: theme.vars.palette.warning[500], flexGrow: "1"})}>Common</Button>
+                <Button value="uncommon" sx={(theme) => ({color: theme.vars.palette.neutral[400], flexGrow: "1"})}>Uncommon</Button>
+                <Button value="rare" sx={(theme) => ({color: theme.vars.palette.warning[300], flexGrow: "1"})}>Rare</Button>
             </ToggleButtonGroup>
         </FormControl>
     )

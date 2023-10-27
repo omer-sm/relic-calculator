@@ -1,3 +1,5 @@
+import { Rarities } from "./Components/ItemRarityInput"
+
 interface IRelicChances {
     common: number,
     uncommon: number,
@@ -31,11 +33,26 @@ const relicChances: {
     }
 }
 
-const getChance = (chances: number[]): number => {
-    return chances.length ? chances.reduce((acc, current) => acc + (1-acc)*current) : 0
+const getProbability = (desiredRarity: Rarities, radAmount: number, 
+                        flawlessAmount: number, excepAmount: number, intAmount: number) => {
+    let total = (1-relicChances.radiant[desiredRarity])**radAmount
+    total *= (1-relicChances.flawless[desiredRarity])**flawlessAmount
+    total *= (1-relicChances.exceptional[desiredRarity])**excepAmount
+    total *= (1-relicChances.intact[desiredRarity])**intAmount
+    let specificProbDenominator = 1
+    let specific = total
+    if (desiredRarity !== "rare") {
+        specificProbDenominator = desiredRarity === "uncommon" ? 2 : 3
+        specific = (1-relicChances.radiant[desiredRarity]/specificProbDenominator)**radAmount
+        specific *= (1-relicChances.flawless[desiredRarity]/specificProbDenominator)**flawlessAmount
+        specific *= (1-relicChances.exceptional[desiredRarity]/specificProbDenominator)**excepAmount
+        specific *= (1-relicChances.intact[desiredRarity]/specificProbDenominator)**intAmount
+    }
+    
+    return [1-total, 1-specific]
 }
 
 const toPercentage = (val: number): number => {return val * 100}
 
-export {relicChances, getChance, toPercentage}
+export {relicChances, toPercentage, getProbability}
 

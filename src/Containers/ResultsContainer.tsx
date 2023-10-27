@@ -4,20 +4,12 @@ import Stack from "@mui/joy/Stack"
 import { Rarities } from "../Components/ItemRarityInput"
 
 interface IResultsContainerProps {
-    rarity: Rarities,
+    specificItemChance: number,
     anyItemChance: number,
+
 }
 
-export default function ResultsContainer({ rarity, anyItemChance, }: IResultsContainerProps) {
-    let specificItemChance = anyItemChance
-    switch (rarity) {
-        case "common":
-            specificItemChance /= 3
-            break
-        case "uncommon":
-            specificItemChance /= 2
-            break
-    }
+export default function ResultsContainer({ specificItemChance, anyItemChance, }: IResultsContainerProps) {
     return (
         <Stack spacing={1}>
             <Typography level="h4">Any item: {anyItemChance.toFixed(1)}%</Typography>
