@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/relic-calculator/static/css/main.e6c13ad2.css",
+    "main.js": "/relic-calculator/static/js/main.d675f948.js",
+    "static/js/787.5372b7e6.chunk.js": "/relic-calculator/static/js/787.5372b7e6.chunk.js",
+    "static/media/bg.svg": "/relic-calculator/static/media/bg.d1afb35642da63bb8eadaea33518a844.svg",
+    "index.html": "/relic-calculator/index.html",
+    "main.e6c13ad2.css.map": "/relic-calculator/static/css/main.e6c13ad2.css.map",
+    "main.d675f948.js.map": "/relic-calculator/static/js/main.d675f948.js.map",
+    "787.5372b7e6.chunk.js.map": "/relic-calculator/static/js/787.5372b7e6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.d675f948.js"
+  ]
+}
